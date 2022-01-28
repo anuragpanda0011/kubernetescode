@@ -9,14 +9,14 @@ node {
 
     stage('Build image') {
   
-       app = docker.build("anurag0011/test")
+       app = docker.build("anurag0011/brownbag")
     }
 
-    stage('Test image') {
+    stage('Post Stage image') {
   
 
         app.inside {
-            sh 'echo "Tests passed"'
+            sh 'echo "Docker repo is reachable"'
         }
     }
 
@@ -29,6 +29,6 @@ node {
     
     stage('Trigger ManifestUpdate') {
                 echo "triggering updatemanifestjob"
-                build job: 'autoupdatemainfest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
+                build job: 'manifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
         }
 }
