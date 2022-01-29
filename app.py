@@ -3,4 +3,4 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Hello GITOPS World Version 5'
+    return 'Hello GITOPS World Version 8'
