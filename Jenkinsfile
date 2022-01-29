@@ -9,7 +9,7 @@ node {
 
     stage('Build image') {
   
-       app = docker.build("anurag0011/brownbag")
+       app = docker.build("anurag0011/brownbagsession")
     }
 
     stage('Post Stage image') {
